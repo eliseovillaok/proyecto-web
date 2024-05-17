@@ -31,12 +31,21 @@ Proyecto dedicado a la construcción de un buscador web utilizando la tecnologia
    cd proyecto
    ```
 **IMPORTANTE** situarse en el mismo directorio que está el archivo _docker-compose.yml_
+*(asegurarse de tener el Docker Desktop ó el Docker Engine activos):*
 
-3. Levantar los servicios con Docker (asegurarse de tener el Docker Desktop ó el Docker Engine activos):
+3. Levantar los servicios de Express para instalar las dependencias *node_modules*:
+   ```bash
+   docker-compose up express
+   ```
+
+4. Abrir **docker-compose.yml** y comentar la última linea, guardar el archivo.
+
+5. Levantar todos los servicios restantes (meilisearch y mongodb):
    ```bash
    docker-compose up [-d]
    ```
-4. Verificar que el servicio _Meilisearch_ y _Express_ se encuentran corriendo
+
+6. Verificar que el servicio _Meilisearch_ y _Express_ se encuentran corriendo
    - Ir a el navegador y tipear [http://localhost:3000](http://localhost:3000) y [http://localhost:7700](http://localhost:7700)
 
 ## Información
