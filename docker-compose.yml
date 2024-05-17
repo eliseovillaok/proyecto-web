@@ -32,5 +32,3 @@ services:
       - './my-project:/app'
     depends_on:
       - mongodb
-
-
