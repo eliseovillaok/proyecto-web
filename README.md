@@ -31,6 +31,7 @@ Proyecto dedicado a la construcción de un buscador web utilizando la tecnologia
    cd proyecto
    ```
 **IMPORTANTE** situarse en el mismo directorio que está el archivo _docker-compose.yml_
+
 3. Levantar los servicios con Docker (asegurarse de tener el Docker Desktop ó el Docker Engine activos):
    ```bash
    docker-compose up [-d]
