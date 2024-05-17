@@ -29,7 +29,7 @@ Proyecto dedicado a la construcción de un buscador web utilizando la tecnologia
    ```
 2. Navega al directorio del proyecto:
    ```bash
-   cd my-project
+   cd proyecto
    ```
 3. Instala las dependencias:
    ```bash

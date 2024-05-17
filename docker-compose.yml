@@ -11,7 +11,7 @@ services:
     environment:
       - MEILI_ENV=development
     volumes:
-      - './my-project-meilisearch:/meili_data'
+      - './proyecto-meilisearch:/meili_data'
   mongodb:
     image: docker.io/bitnami/mongodb:7.0
     environment:
@@ -29,6 +29,6 @@ services:
       - EXPRESS_SKIP_NPM_INSTALL=0
       - EXPRESS_SKIP_BOWER_INSTALL=0
     volumes:
-      - './my-project:/app'
+      - './proyecto:/app'
     depends_on:
       - mongodb
