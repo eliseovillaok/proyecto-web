@@ -18,8 +18,8 @@ Proyecto dedicado a la construcción de un buscador web utilizando la tecnologia
 
 ### Requisitos Previos
 
-- Instalar Docker Desktop y ejecutarlo
-- [Docker](https://www.docker.com/)
+- Instalar [Docker Desktop](https://www.docker.com/) y ejecutarlo
+-
 
 ### Pasos de Instalación
 
@@ -36,9 +36,15 @@ Proyecto dedicado a la construcción de un buscador web utilizando la tecnologia
    npm install
    ```
 4. Levanta los servicios con Docker (si es necesario):
+
    ```bash
    docker-compose up [-d]
    ```
+
+   **IMPORTANTE** situarse en el mismo directorio que está el archivo _docker-compose.yml_
+
+5. Verificar que el servicio _Meilisearch_ y _Express_ se encuentran corriendo
+   1. Ir a el navegador y tipear [http://localhost:3000](http://localhost:3000) y [http://localhost:7700](http://localhost:7700)
 
 ## Información
 
