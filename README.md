@@ -56,6 +56,7 @@ Proyecto dedicado a la construcción de un buscador web utilizando la tecnologia
 4. https://kinsta.com/es/blog/meilisearch/
 5. https://flatirons.com/blog/understanding-and-implementing-gitignore-for-node_modules/
 6. https://docs.github.com/es/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+7. https://csvjson.com/csv2json
 
 ## Licencia
 
