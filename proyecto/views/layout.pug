@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    //- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@meilisearch/instant-meilisearch/templates/basic_search.css" />
+  body
+    block content
+  script(src='https://cdn.jsdelivr.net/npm/@meilisearch/instant-meilisearch/dist/instant-meilisearch.umd.min.js')
+  script(src='https://cdn.jsdelivr.net/npm/instantsearch.js@4')
+  script.
+    const search = instantsearch({
+    indexName: "dataset",
+    searchClient: instantMeiliSearch(
+    "http://localhost:7700"
+    ).searchClient
+    });
+    search.addWidgets([
+    instantsearch.widgets.searchBox({
+    container: "#searchbox"
+    }),
+    instantsearch.widgets.configure({ hitsPerPage: 16 }),
+    instantsearch.widgets.hits({
+    container: "#hits",
+    templates: {
+    item: `
+      <div>
+        <div class="hit-name">
+          {{#helpers.highlight}}{ "attribute": "nombre" }{{/helpers.highlight}}
+        </div>
+      </div>
+    `
+    }
+    })
+    ]);
+    search.start();
