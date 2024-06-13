@@ -1,7 +1,38 @@
 extends layout
 
 block content
-    input(type="checkbox" id="searchCheckbox" value="Abierto")
+    div.filters
+        h1 filtros de búsqueda
+        div.filters_estatus
+            h2 estatus
+            ul
+                li
+                    p Abierto
+                    input(type="checkbox" class="filterCheckbox" value="Abierto" data-filter="estatus")
+                li    
+                    p Ongoing
+                    input(type="checkbox" class="filterCheckbox" value="Ongoing" data-filter="estatus")
+                li    
+                    p +4 meses
+                    input(type="checkbox" class="filterCheckbox" value=">4 meses" data-filter="estatus")
+        div.filters_based-on
+            h2 based on
+            ul
+                li
+                    p USA
+                    input(type="checkbox" class="filterCheckbox" value="USA" data-filter="basedOn")
+                li
+                    p Australia
+                    input(type="checkbox" class="filterCheckbox" value="Australia" data-filter="basedOn")
+                li
+                    p Belgium
+                    input(type="checkbox" class="filterCheckbox" value="Belgium" data-filter="basedOn")
+                li
+                    p Canada
+                    input(type="checkbox" class="filterCheckbox" value="Canada" data-filter="basedOn")
+        div.filters_tipo
+            h2 tipo
+
     .wrapper
         #searchbox(focus='')
         #hits

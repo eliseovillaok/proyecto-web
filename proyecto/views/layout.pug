@@ -43,15 +43,27 @@ html
     })
     ]);
     search.start();
-    document.getElementById('searchCheckbox').addEventListener('change', function() {
-      const isChecked = this.checked;
-      const filterValue = this.value;
-      
-      search.addWidgets([
-        instantsearch.widgets.configure({
-          filters: isChecked ? `estatus = "${filterValue}"` : ''
-        }),
-      ]);
-      
-      search.refresh();
+    document.querySelectorAll('.filterCheckbox').forEach(function(checkbox) {
+      checkbox.addEventListener('change', function() {
+        // Obtener todos los checkboxes
+        const checkboxes = document.querySelectorAll('.filterCheckbox');
+        let filters = [];
+
+        // Crear la cadena de filtros combinando los valores de los checkboxes seleccionados
+        checkboxes.forEach(function(cb) {
+          if (cb.checked) {
+            filters.push(`${cb.dataset.filter} = "${cb.value}"`);
+          }
+        });
+
+        // Configurar los filtros en la búsqueda
+        search.addWidgets([
+          instantsearch.widgets.configure({
+            filters: filters.join(' AND ')
+          }),
+        ]);
+
+        // Actualizar la búsqueda
+        search.refresh();
+      });
     });
