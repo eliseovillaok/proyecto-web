@@ -7,11 +7,14 @@ html
     link(rel='apple-touch-icon' sizes='180x180' href='/icon/apple-touch-icon.png')
     link(rel='icon' type='image/png' sizes='32x32' href='/icon/favicon-32x32.png')
     link(rel='icon' type='image/png' sizes='16x16' href='/icon/favicon-16x16.png')
+    //- link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.0.0/themes/algolia-min.css")
     //- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@meilisearch/instant-meilisearch/templates/basic_search.css" />
   body
     block content
+  
   script(src='https://cdn.jsdelivr.net/npm/@meilisearch/instant-meilisearch/dist/instant-meilisearch.umd.min.js')
   script(src='https://cdn.jsdelivr.net/npm/instantsearch.js@4')
+
   script.
     const search = instantsearch({
     indexName: "dataset",
@@ -21,7 +24,9 @@ html
     });
     search.addWidgets([
     instantsearch.widgets.searchBox({
-    container: "#searchbox"
+    container: "#searchbox",
+    placeholder: 'Titulo del articulo...',
+    showSubmit: false
     }),
     instantsearch.widgets.configure({ 
     hitsPerPage: 16
@@ -30,14 +35,12 @@ html
     container: "#hits",
     templates: {
     item: `
-      <div>
-        <div class="hit-name">
-          {{#helpers.highlight}}{ "attribute": "nombre" }{{/helpers.highlight}}
-        </div>
-        <div class="hit-description">
-          {{#helpers.highlight}}{ "attribute": "estatus" }{{/helpers.highlight}}
-        </div>
-      </div>
+        <article>
+          <p>Titulo: {{#helpers.highlight}}{ "attribute": "nombre", "highlightedTagName": "mark" }{{/helpers.highlight}}</p>
+          <p>Estatus: {{#helpers.highlight}}{ "attribute": "estatus", "highlightedTagName": "mark" }{{/helpers.highlight}}</p>
+          <p>Based On: {{#helpers.highlight}}{ "attribute": "basedOn", "highlightedTagName": "mark" }{{/helpers.highlight}}</p>
+          <p>Tipo: {{#helpers.highlight}}{ "attribute": "tipo", "highlightedTagName": "mark" }{{/helpers.highlight}}</p>
+        </article>
     `
     }
     })

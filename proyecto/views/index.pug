@@ -1,37 +1,50 @@
 extends layout
 
 block content
-    div.filters
-        h1 filtros de búsqueda
-        div.filters_estatus
-            h2 estatus
+    .filters
+        h2 Filtros de busqueda
+        .filters-box
+            h3 Estatus
             ul
                 li
-                    p Abierto
-                    input(type="checkbox" class="filterCheckbox" value="Abierto" data-filter="estatus")
+                    label(for="Abierto") Abierto
+                    input(type="checkbox" class="filterCheckbox" id="Abierto" value="Abierto" data-filter="estatus")
                 li    
-                    p Ongoing
-                    input(type="checkbox" class="filterCheckbox" value="Ongoing" data-filter="estatus")
+                    label(for="Ongoing") Ongoing
+                    input(type="checkbox" class="filterCheckbox" id="Ongoing" value="Ongoing" data-filter="estatus")
                 li    
-                    p +4 meses
-                    input(type="checkbox" class="filterCheckbox" value=">4 meses" data-filter="estatus")
-        div.filters_based-on
-            h2 based on
+                    label(for=">4 meses") +4 Meses
+                    input(type="checkbox" class="filterCheckbox" id=">4 meses" value=">4 meses" data-filter="estatus")
+        .filters-box
+            h3 Based On
             ul
                 li
-                    p USA
-                    input(type="checkbox" class="filterCheckbox" value="USA" data-filter="basedOn")
+                    label(for="USA") USA
+                    input(type="checkbox" class="filterCheckbox" id="USA" value="USA" data-filter="basedOn")
                 li
-                    p Australia
-                    input(type="checkbox" class="filterCheckbox" value="Australia" data-filter="basedOn")
+                    label(for="Australia") Australia
+                    input(type="checkbox" class="filterCheckbox" id="Australia" value="Australia" data-filter="basedOn")
                 li
-                    p Belgium
-                    input(type="checkbox" class="filterCheckbox" value="Belgium" data-filter="basedOn")
+                    label(for="Belgium") Belgium
+                    input(type="checkbox" class="filterCheckbox" id="Belgium" value="Belgium" data-filter="basedOn")
                 li
-                    p Canada
-                    input(type="checkbox" class="filterCheckbox" value="Canada" data-filter="basedOn")
-        div.filters_tipo
-            h2 tipo
+                    label(for="Canada") Canada
+                    input(type="checkbox" class="filterCheckbox" id="Canada" value="Canada" data-filter="basedOn")
+        .filters-box
+            h3 Tipo
+            ul
+                li 
+                    label(for="Prizes and Awards") Prizes and Awards
+                    input(type="checkbox" class="filterCheckbox" id="Prizes and Awards" value="Prizes and Awards" data-filter="tipo")
+                li 
+                    label(for="Research and publications") Research and publications
+                    input(type="checkbox" class="filterCheckbox" id="Research and publications" value="Research and publications" data-filter="tipo")
+                li 
+                    label(for="Programs and projects") Programs and projects
+                    input(type="checkbox" class="filterCheckbox" id="Programs and projects" value="Programs and projects" data-filter="tipo")
+                li 
+                    label(for="Fellowships scholarships or trainings") Fellowships scholarships or trainings
+                    input(type="checkbox" class="filterCheckbox" id="Fellowships scholarships or trainings" value="Fellowships scholarships or trainings" data-filter="tipo")
 
     .wrapper
         #searchbox(focus='')
