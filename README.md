@@ -65,4 +65,4 @@ Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo [LICENS
 ## Contacto
 
 Para cualquier consulta, puedes contactarnos en [eliseovilla10@gmail.com](mailto:eliseovilla10@gmail.com).
-[tredolatti@gmail.com](mailto:tredolatti@gmail.com).
+[tredolatti@proton.com](mailto:tredolatti@proton.com).
