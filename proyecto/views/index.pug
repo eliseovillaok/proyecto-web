@@ -1,52 +1,62 @@
 extends layout
 
 block content
-    .filters
-        h2 Filtros de búsqueda
-        .filters-box
-            h3 Estatus
-            ul
-                li
-                    label(for="Abierto") Abierto
-                    input(type="checkbox" class="filterCheckbox" id="Abierto" value="Abierto" data-filter="estatus")
-                li    
-                    label(for="Ongoing") Ongoing
-                    input(type="checkbox" class="filterCheckbox" id="Ongoing" value="Ongoing" data-filter="estatus")
-                li    
-                    label(for=">4 meses") +4 Meses
-                    input(type="checkbox" class="filterCheckbox" id=">4 meses" value=">4 meses" data-filter="estatus")
-        .filters-box
-            h3 Based On
-            ul
-                li
-                    label(for="USA") USA
-                    input(type="checkbox" class="filterCheckbox" id="USA" value="USA" data-filter="basedOn")
-                li
-                    label(for="Australia") Australia
-                    input(type="checkbox" class="filterCheckbox" id="Australia" value="Australia" data-filter="basedOn")
-                li
-                    label(for="Belgium") Belgium
-                    input(type="checkbox" class="filterCheckbox" id="Belgium" value="Belgium" data-filter="basedOn")
-                li
-                    label(for="Canada") Canada
-                    input(type="checkbox" class="filterCheckbox" id="Canada" value="Canada" data-filter="basedOn")
-        .filters-box
-            h3 Tipo
-            ul
-                li 
-                    label(for="Prizes and Awards") Prizes and Awards
-                    input(type="checkbox" class="filterCheckbox" id="Prizes and Awards" value="Prizes and Awards" data-filter="tipo")
-                li 
-                    label(for="Research and publications") Research and publications
-                    input(type="checkbox" class="filterCheckbox" id="Research and publications" value="Research and publications" data-filter="tipo")
-                li 
-                    label(for="Programs and projects") Programs and projects
-                    input(type="checkbox" class="filterCheckbox" id="Programs and projects" value="Programs and projects" data-filter="tipo")
-                li 
-                    label(for="Fellowships scholarships or trainings") Fellowships scholarships or trainings
-                    input(type="checkbox" class="filterCheckbox" id="Fellowships scholarships or trainings" value="Fellowships scholarships or trainings" data-filter="tipo")
-
-    .wrapper
+  .container
+    .main-content
         #searchbox(focus='')
         #hits
-    
+    .aside
+      .user-info
+          h1 Bienvenido #{user.username}!
+          if user.role === 'admin'
+              form(action="/upload" method="post" enctype="multipart/form-data")
+                  label(for="file") Cargar dataset .xslx:
+                  input#file(type="file" name="file" accept=".xlsx")
+                  button(type="submit") Subir a MeiliSearch
+          a.logout-button(href="/auth/logout") Cerrar sesión
+
+      .filters
+          h2 Filtros de búsqueda
+          .filters-box
+              h3 Estatus
+              ul
+                  li
+                      label(for="Abierto") Abierto
+                      input(type="checkbox" class="filterCheckbox" id="Abierto" value="Abierto" data-filter="estatus")
+                  li    
+                      label(for="Ongoing") Ongoing
+                      input(type="checkbox" class="filterCheckbox" id="Ongoing" value="Ongoing" data-filter="estatus")
+                  li    
+                      label(for=">4 meses") +4 Meses
+                      input(type="checkbox" class="filterCheckbox" id=">4 meses" value=">4 meses" data-filter="estatus")
+          .filters-box
+              h3 Based On
+              ul
+                  li
+                      label(for="USA") USA
+                      input(type="checkbox" class="filterCheckbox" id="USA" value="USA" data-filter="basedOn")
+                  li
+                      label(for="Australia") Australia
+                      input(type="checkbox" class="filterCheckbox" id="Australia" value="Australia" data-filter="basedOn")
+                  li
+                      label(for="Belgium") Belgium
+                      input(type="checkbox" class="filterCheckbox" id="Belgium" value="Belgium" data-filter="basedOn")
+                  li
+                      label(for="Canada") Canada
+                      input(type="checkbox" class="filterCheckbox" id="Canada" value="Canada" data-filter="basedOn")
+          .filters-box
+              h3 Tipo
+              ul
+                  li 
+                      label(for="Prizes and Awards") Prizes and Awards
+                      input(type="checkbox" class="filterCheckbox" id="Prizes and Awards" value="Prizes and Awards" data-filter="tipo")
+                  li 
+                      label(for="Research and publications") Research and publications
+                      input(type="checkbox" class="filterCheckbox" id="Research and publications" value="Research and publications" data-filter="tipo")
+                  li 
+                      label(for="Programs and projects") Programs and projects
+                      input(type="checkbox" class="filterCheckbox" id="Programs and projects" value="Programs and projects" data-filter="tipo")
+                  li 
+                      label(for="Fellowships scholarships or trainings") Fellowships scholarships or trainings
+                      input(type="checkbox" class="filterCheckbox" id="Fellowships scholarships or trainings" value="Fellowships scholarships or trainings" data-filter="tipo")
+
