@@ -5,8 +5,6 @@ var isAuthenticated = require("../middlewares/isAuthenticated");
 // Redirigir a login si el usuario no está autenticado
 router.get("/", (req, res) => {
   try {
-    console.log("entree");
-
     if (!req.isAuthenticated()) {
       return res.redirect("/auth/login");
     }

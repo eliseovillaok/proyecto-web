@@ -1,18 +1,27 @@
 const express = require("express");
-const router = express.Router();
+const fs = require("fs");
+const path = require("path");
 const multer = require("multer");
 const isAdmin = require("../middlewares/isAdmin");
+const router = express.Router();
 
-// Configuración de multer para subir archivos
-const upload = multer({ dest: "uploads/" });
+const uploadDir = path.join(__dirname, "../uploads");
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir); // Crea la carpeta uploads si no existe
+}
 
-router.post("/upload", isAdmin, upload.single("file"), async (req, res) => {
+const upload = multer({
+  dest: uploadDir,
+});
+
+router.post("/dataset", isAdmin, upload.single("file"), async (req, res) => {
   try {
     const filePath = req.file.path;
-
-    // Procesa el archivo .xlsx y envíalo a MeiliSearch
-    // (Implementa la lógica de procesamiento aquí)
-    res.send("Archivo cargado correctamente y procesado.");
+    console.log("Archivo cargado correctamente:", filePath);
+    //
+    // ACÁ VA LA LOGICA QUE AGARRA EL ARCHIVO Y LO CARGA EN MEILISEARCH
+    //
+    res.redirect("/");
   } catch (error) {
     console.error(error);
     res.status(500).send("Error al procesar el archivo.");

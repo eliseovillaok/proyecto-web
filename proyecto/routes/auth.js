@@ -17,11 +17,6 @@ router.post(
   })
 );
 
-// Página de registro
-router.get("/register", (req, res) => {
-  res.render("register"); // Muestra el formulario de registro
-});
-
 // Procesar registro
 router.post("/register", async (req, res) => {
   const { username, password } = req.body;

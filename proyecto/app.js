@@ -11,7 +11,6 @@ const mongoose = require("mongoose");
 const LocalStrategy = require("passport-local").Strategy;
 
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
 var authRouter = require("./routes/auth");
 var uploadRouter = require("./routes/upload");
 
@@ -80,7 +79,7 @@ passport.deserializeUser(async (id, done) => {
 // Configuración de sesión
 app.use(
   session({
-    secret: "secret_key", // Asegúrate de cambiar este valor en producción
+    secret: "secret_key", // cambiarla en produccion
     resave: false,
     saveUninitialized: true,
   })
@@ -92,27 +91,28 @@ app.use(passport.session()); // Ahora passport.session() se ejecuta después de 
 
 // Rutas
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 app.use("/auth", authRouter);
 app.use("/upload", uploadRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404));
+  next(createError(404)); // Llama al middleware de error 404
 });
 
-// Middleware manejador de errores global
-app.use((err, req, res, next) => {
-  console.error("Middleware de error:", err);
-  res.status(500).send("Ha ocurrido un error. Inténtalo de nuevo.");
-});
-
-// error handler
+// Error handler middleware
 app.use(function (err, req, res, next) {
-  res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
-  res.status(err.status || 500);
-  res.render("error");
+  // Si es un error 404, renderiza la página de error personalizada
+  if (err.status === 404) {
+    res.status(404);
+    res.render("error-404"); // Renderiza error-404.pug
+  } else {
+    // En caso de otros errores, renderiza el error genérico
+    res.status(err.status || 500);
+    res.render("error", {
+      message: err.message,
+      error: err, // Esto solo se muestra en desarrollo
+    });
+  }
 });
 
 // Conexión a MongoDB
