@@ -43,8 +43,8 @@ router.post("/register", async (req, res) => {
 });
 
 // Ruta de logout
-router.get("/logout", (req, res) => {
-  req.logout(() => res.redirect("/auth/login"));
+router.get("/logout", (req, res, next) => {
+  res.redirect("/auth/login"); // Redirige al login
 });
 
 module.exports = router;

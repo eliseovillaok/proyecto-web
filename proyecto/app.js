@@ -101,6 +101,12 @@ app.use(function (req, res, next) {
   next(createError(404));
 });
 
+// Middleware manejador de errores global
+app.use((err, req, res, next) => {
+  console.error("Middleware de error:", err);
+  res.status(500).send("Ha ocurrido un error. Inténtalo de nuevo.");
+});
+
 // error handler
 app.use(function (err, req, res, next) {
   res.locals.message = err.message;
