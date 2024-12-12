@@ -1,5 +1,5 @@
 # SEARCH ENGINE PROJECT using MEAN STACK & Meilisearch
-
+https://github.com/user-attachments/assets/3a987b46-2370-45a0-b961-d494051e299c
 ## Descripción
 
 Proyecto dedicado a la construcción de un buscador web utilizando la tecnologia "Meilisearch" y el stack MEAN (MongoDB, Express, Angular, NodeJS).
