@@ -1,4 +1,4 @@
-# MEILISEARCH PROJECT USING STACK MEAN
+# SEARCH ENGINE PROJECT using MEAN STACK & Meilisearch
 
 ## Descripción
 
