@@ -8,11 +8,9 @@ Proyecto dedicado a la construcción de un buscador web utilizando la tecnologia
 
 - [Descripción](#descripción)
 - [Instalación](#instalación)
-- [Uso](#uso)
-- [Características](#características)
 - [Información](#información)
-- [Contribuir](#contribuir)
 - [Licencia](#licencia)
+- [Contacto](#contacto)
 
 ## Instalación
 
